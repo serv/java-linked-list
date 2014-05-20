@@ -36,22 +36,55 @@ public class ListTest {
         list.addHead(3);
         assertEquals("failure - list count is not 1", list.getCount(), 1);
         assertEquals("failure - list's head should be 3", 3, list.getHead().value);
+        assertEquals("failure - list's tail should be 3", 3, list.getTail().value);
+        
+        list.addHead(2);
+        assertEquals("failure - list's head should be 2", 2, list.getHead().value);
+        assertEquals("failure - list's tail should be 3", 3, list.getTail().value);
+        assertEquals(list.getHead().nextNode.value, 3);
+        
+        list.addHead(1);
+        assertEquals("failure - list count is not 3", list.getCount(), 3);
+        assertEquals("failure - list's head should be 1", 1, list.getHead().value);
+        assertEquals("failure - list's tail should be 3", 3, list.getTail().value);
     }
     
     @Test
     public void testAddTail() {
         List list = new List();
         list.addTail(3);
-        assertEquals("failure - list's head should be 3", 3, list.getTail().value);
+        assertEquals("failure - list count is not 1", list.getCount(), 1);
+        assertEquals("failure - list's tail should be 3", 3, list.getTail().value);
+        
+        list.addTail(2);
+        list.addTail(1);
+        assertEquals("failure - list count is not 3", list.getCount(), 3);
+        assertEquals("failure - list's tail should be 1", 1, list.getTail().value);
     }
     
     @Test
     public void testStringList() {
         List list = new List();
+        list.addHead(4);
+        assertEquals("4", list.stringList());
+        
+        list.addHead(3);
+        assertEquals("3 4", list.stringList());
+        
+        list.addHead(2);
+        list.addHead(1);
+        assertEquals("1 2 3 4", list.stringList());
+    }
+    
+    @Test
+    public void testHasValue() {
+        List list = new List();
         list.addHead(3);
         list.addHead(2);
         list.addHead(1);
-        assertEquals("failure - list's head should be 1 2 3 ", "1 2 3 ", list.stringList());
+        assertEquals("failure - should be true", true, list.hasValue(1));
+        assertEquals("failure - should be true", true, list.hasValue(2));
+        assertEquals("failure - should be true", true, list.hasValue(3));
+        assertEquals("failure - should be false", false, list.hasValue(4));
     }
-
 }

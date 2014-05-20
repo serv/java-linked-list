@@ -16,7 +16,7 @@ public class List {
     }
     
     public boolean isEmpty() {
-        return (this.count == 0 && this.head == null && this.tail == null);
+        return this.count == 0;
     }
     
     public void addHead(int value) {
@@ -25,6 +25,7 @@ public class List {
         if (this.isEmpty()) {
             this.head = node;
             this.tail = node;
+            
             node.nextNode = null;
         } else {
             node.nextNode = this.head;
@@ -36,14 +37,14 @@ public class List {
     
     public void addTail(int value) {
         Node node = new Node(value);
+        node.nextNode = null;
         
         if (this.isEmpty()) {
             this.head = node;
             this.tail = node;
-            node.nextNode = null;
         } else {
-            node.nextNode = null;
             this.tail.nextNode = node;
+            this.tail = node;
         }
         
         this.count++;
@@ -58,13 +59,20 @@ public class List {
     }
     
     public String stringList() {
-        String str = null;
-        Node current = this.head;
-        
-        while(current.nextNode != null) {
-            str += current.value + " ";
+        if (this.isEmpty()) {
+            return new String();
         }
         
+        String str = new String();
+        Node current = this.head;
+        
+        str = Integer.toString(current.value);
+        
+        while(current.nextNode != null) {
+            str += " " + current.nextNode.value;
+            current = current.nextNode;
+        }
+
         return str;
     }
     
@@ -72,4 +80,20 @@ public class List {
         System.out.println(this.stringList());
     }
     
+    public boolean hasValue(int value) {
+        if (this.isEmpty()) {
+            return false;
+        }
+        
+        Node current = this.head;
+        
+        while(current != null) {
+            if(current.value == value) {
+                return true;
+            }
+            current = current.nextNode;
+        }
+        
+        return false;
+    }
 }
