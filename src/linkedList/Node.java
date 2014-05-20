@@ -1,10 +1,10 @@
 package linkedList;
 
 public class Node {
-    public double value;
+    public int value;
     public Node nextNode;
     
-    public Node(double value) {
+    public Node(int value) {
         this.value = value;
         this.nextNode = null;
     }

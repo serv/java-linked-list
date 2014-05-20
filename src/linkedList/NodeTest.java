@@ -9,14 +9,14 @@ public class NodeTest {
 
     @Test
     public void testInstantiation() {
-        Node node = new Node(3.14);
-        assertEquals(3.14, node.value, DELTA);
+        Node node = new Node(3);
+        assertEquals(3, node.value, DELTA);
     }
     
     @Test
     public void testStringNodeValue() {
-        Node node = new Node(10.2);
-        assertEquals("failure - strings are not equal", "{ 10.2 }", node.stringNodeValue());
+        Node node = new Node(10);
+        assertEquals("failure - strings are not equal", "{ 10 }", node.stringNodeValue());
     }
     
 

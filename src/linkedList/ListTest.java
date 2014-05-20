@@ -15,33 +15,34 @@ public class ListTest {
     @Test
     public void testIsEmpty() {
         List list = new List();
-        assertTrue("failure - should be true", true);
+        assertEquals("failure - should be true", true, list.isEmpty());
     }
     
     @Test
     public void testGetHead() {
         List list = new List();
-        assertEquals("failure - list's head should be null", list.getHead(), null);
+        assertEquals("failure - list's head should be null", null, list.getHead());
     }
     
     @Test
     public void testGetTail() {
         List list = new List();
-        assertEquals("failure - list's tail should be null", list.getTail(), null);
+        assertEquals("failure - list's tail should be null", null, list.getTail());
     }
     
     @Test
     public void testAddHead() {
         List list = new List();
         list.addHead(3);
-        assertEquals("failure - list's head should be 3", list.getHead(), 3);
+        assertEquals("failure - list count is not 1", list.getCount(), 1);
+        assertEquals("failure - list's head should be 3", 3, list.getHead().value);
     }
     
     @Test
     public void testAddTail() {
         List list = new List();
         list.addTail(3);
-        assertEquals("failure - list's head should be 3", list.getTail(), 3);
+        assertEquals("failure - list's head should be 3", 3, list.getTail().value);
     }
     
     @Test
@@ -50,7 +51,7 @@ public class ListTest {
         list.addHead(3);
         list.addHead(2);
         list.addHead(1);
-        assertEquals("failure - list's head should be 1 2 3", list.stringList(), "1 - 2 - 3");
+        assertEquals("failure - list's head should be 1 2 3", "1 - 2 - 3", list.stringList());
     }
 
 }
