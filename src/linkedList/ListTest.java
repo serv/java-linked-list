@@ -51,7 +51,7 @@ public class ListTest {
         list.addHead(3);
         list.addHead(2);
         list.addHead(1);
-        assertEquals("failure - list's head should be 1 2 3", "1 - 2 - 3", list.stringList());
+        assertEquals("failure - list's head should be 1 2 3 ", "1 2 3 ", list.stringList());
     }
 
 }

@@ -65,7 +65,7 @@ public class List {
             str += current.value + " ";
         }
         
-        return " ";
+        return str;
     }
     
     public void printList() {
