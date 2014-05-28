@@ -8,31 +8,31 @@ public class ListTest {
 
     @Test
     public void testInstantiation() {
-        List list = new List();
+        List<Object> list = new List<>();
         assertEquals("failure - list count is not 0", list.getCount(), 0);
     }
     
     @Test
     public void testIsEmpty() {
-        List list = new List();
+        List<Object> list = new List<>();
         assertEquals("failure - should be true", true, list.isEmpty());
     }
     
     @Test
     public void testGetHead() {
-        List list = new List();
+        List<Object> list = new List<>();
         assertEquals("failure - list's head should be null", null, list.getHead());
     }
     
     @Test
     public void testGetTail() {
-        List list = new List();
+        List<Object> list = new List<>();
         assertEquals("failure - list's tail should be null", null, list.getTail());
     }
     
     @Test
     public void testAddHead() {
-        List list = new List();
+        List<Object> list = new List<>();
         list.addHead(3);
         assertEquals("failure - list count is not 1", list.getCount(), 1);
         assertEquals("failure - list's head should be 3", 3, list.getHead().value);
@@ -51,7 +51,7 @@ public class ListTest {
     
     @Test
     public void testAddTail() {
-        List list = new List();
+        List<Object> list = new List<>();
         list.addTail(3);
         assertEquals("failure - list count is not 1", list.getCount(), 1);
         assertEquals("failure - list's tail should be 3", 3, list.getTail().value);
@@ -64,7 +64,7 @@ public class ListTest {
     
     @Test
     public void testStringList() {
-        List list = new List();
+        List<Object> list = new List<>();
         list.addHead(4);
         assertEquals("4", list.stringList());
         
@@ -78,7 +78,7 @@ public class ListTest {
     
     @Test
     public void testHasValue() {
-        List list = new List();
+        List<Object> list = new List<>();
         list.addHead(3);
         list.addHead(2);
         list.addHead(1);
@@ -87,4 +87,5 @@ public class ListTest {
         assertEquals("failure - should be true", true, list.hasValue(3));
         assertEquals("failure - should be false", false, list.hasValue(4));
     }
+    
 }

@@ -9,15 +9,25 @@ public class NodeTest {
 
     @Test
     public void testInstantiation() {
-        Node node = new Node(3);
+        Node<Integer> node = new Node<>(3);
         assertEquals(3, node.value, DELTA);
     }
     
     @Test
     public void testStringNodeValue() {
-        Node node = new Node(10);
+        Node<Integer> node = new Node<>(10);
         assertEquals("failure - strings are not equal", "{ 10 }", node.stringNodeValue());
     }
     
+    @Test
+    public void testPrimitives() {
+        Node<Integer> intNode = new Node<>(100);
+        Node<Double> doubleNode = new Node<>(100.0);
+        Node<String> stringNode = new Node<>("One hundred");
+        
+        assertEquals(100, intNode.value, DELTA);
+        assertEquals(100.0, doubleNode.value, DELTA);
+        assertEquals("failure - strings are not equal", "One hundred", stringNode.value);
+    }
 
 }

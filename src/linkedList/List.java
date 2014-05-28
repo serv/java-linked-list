@@ -1,9 +1,9 @@
 package linkedList;
 
-public class List {
+public class List<T> {
     private int count;
-    private Node head;
-    private Node tail;
+    private Node<T> head;
+    private Node<T> tail;
     
     public List() {
         this.count = 0;
@@ -19,8 +19,8 @@ public class List {
         return this.count == 0;
     }
     
-    public void addHead(int value) {
-        Node node = new Node(value);
+    public void addHead(T value) {
+        Node<T> node = new Node<>(value);
         
         if (this.isEmpty()) {
             this.head = node;
@@ -35,8 +35,8 @@ public class List {
         this.count++;
     }
     
-    public void addTail(int value) {
-        Node node = new Node(value);
+    public void addTail(T value) {
+        Node<T> node = new Node<>(value);
         node.nextNode = null;
         
         if (this.isEmpty()) {
@@ -50,11 +50,11 @@ public class List {
         this.count++;
     }
     
-    public Node getHead() {
+    public Node<T> getHead() {
         return this.head;
     }
     
-    public Node getTail() {
+    public Node<T> getTail() {
         return this.tail;
     }
     
@@ -64,9 +64,9 @@ public class List {
         }
         
         String str = new String();
-        Node current = this.head;
+        Node<T> current = this.head;
         
-        str = Integer.toString(current.value);
+        str = current.value.toString(); 
         
         while(current.nextNode != null) {
             str += " " + current.nextNode.value;
@@ -80,12 +80,12 @@ public class List {
         System.out.println(this.stringList());
     }
     
-    public boolean hasValue(int value) {
+    public boolean hasValue(T value) {
         if (this.isEmpty()) {
             return false;
         }
         
-        Node current = this.head;
+        Node<T> current = this.head;
         
         while(current != null) {
             if(current.value == value) {
